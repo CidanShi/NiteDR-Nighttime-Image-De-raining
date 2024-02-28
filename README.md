@@ -8,7 +8,6 @@ Codes for ***NiteDR: Nighttime Image De-Raining with Cross-View Sensor Cooperati
 - [Dataset](#Dataset)
 - [Usage](#Usage)
   - [Network Architecture](#NetworkArchitecture)
-  - [Network Architecture](#NetworkArchitecture)
   - [Training](#Training)
   - [Testing](#Testing)
 - [NiteDR](#NiteDR)
@@ -45,6 +44,7 @@ Our CleanNet is implemented in ``'./basicsr/models/archs/CLformer_arch.py'``. Ou
 ### Training
 
 **1. Preparation**
+
 Download the pretrained vgg16 model from [Google drive](https://drive.google.com/file/d/1AANKTsmDfwG5vN02xx_Fh_g8sxYIrAuW/view?usp=sharing) and place it in the folder ``'./mdoel/'.``
 
 **2. Information Cleaning Training**
