@@ -35,7 +35,6 @@ In real-world environments, outdoor imaging systems are often affected by distur
 ## Dataset
 Our RoadScene-rain dataset can be downloaded from [Google drive](https://drive.google.com/drive/folders/1R0qABZZazvB_3nOo24jgmuD5r1EQOaG8?usp=drive_link) and placed in the folder ``'./dataset/RoadScene-rain/'.``
 
-
 ## Usage
 
 ### Network Architecture
@@ -103,7 +102,7 @@ CUDA_VISIBLE_DEVICES=0, python CLFU_test.py --test_root_dir 'Path of the testing
 
 <img src="Figure/de-raining2.png" width="70%" align=center />
 
-**2.Visual results of our method comparison with fusion methods**
+**2. Visual results of our method comparison with fusion methods**
 
 <img src="Figure/fusion1.png" width="90%" align=center />
 
