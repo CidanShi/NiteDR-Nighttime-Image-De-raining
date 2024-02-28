@@ -7,7 +7,7 @@ Codes for ***NiteDR: Nighttime Image De-Raining with Cross-View Sensor Cooperati
 - [Installation](#Installation)
 - [Dataset](#Dataset)
 - [Usage](#Usage)
-  - [Network Architecture](#NetworkArchitecture)
+  - [Network](#Network)
   - [Training](#Training)
   - [Testing](#Testing)
 - [NiteDR](#NiteDR)
