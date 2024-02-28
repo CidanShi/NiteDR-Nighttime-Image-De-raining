@@ -30,7 +30,7 @@ In real-world environments, outdoor imaging systems are often affected by distur
 ```
 
 ### Dataset
-Our RoadScene-rain dataset can be downloaded from [Google drive](https://drive.google.com/drive/folders/1R0qABZZazvB_3nOo24jgmuD5r1EQOaG8?usp=drive_link) and placed in the folder ``'./dataset/'.``
+Our RoadScene-rain dataset can be downloaded from [Google drive](https://drive.google.com/drive/folders/1R0qABZZazvB_3nOo24jgmuD5r1EQOaG8?usp=drive_link) and placed in the folder ``'./dataset/RoadScene-rain/'.``
 
 
 ## Usage
@@ -55,7 +55,7 @@ and the trained model is available in ``'./expeiments/de-raining/checkpoints/'``
 
 Run 
 ```
-CUDA_VISIBLE_DEVICES=0, python Fu_train.py
+CUDA_VISIBLE_DEVICES=0, python Fu_train.py --train_root_dir 'Path of the training images' --derained_checkpoint_dir 'Path of the de-raining model' --model_path 'Path to save the fusion checkpoint' --fusion_refine_model 'fusion model name' 
 ```
 and the trained model is available in ``'./experiments/fusion/checkpoints/'``.
 
