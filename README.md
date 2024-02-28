@@ -32,12 +32,14 @@ In real-world environments, outdoor imaging systems are often affected by distur
 - pytorch-msssim == 1.0.0
 ```
 
-### Dataset
+## Dataset
 Our RoadScene-rain dataset can be downloaded from [Google drive](https://drive.google.com/drive/folders/1R0qABZZazvB_3nOo24jgmuD5r1EQOaG8?usp=drive_link) and placed in the folder ``'./dataset/RoadScene-rain/'.``
 
 
 ## Usage
+
 ### Network Architecture
+
 Our CleanNet is implemented in ``'./basicsr/models/archs/CLformer_arch.py'``. Our FusionNet is implemented in ``'Dense.py'`` and ``'refine.py'``.
 
 ### Training
@@ -76,8 +78,9 @@ CUDA_VISIBLE_DEVICES=0, python CLFU_test.py --test_root_dir 'Path of the testing
 ```
 
 
-### NiteDR
-#### Illustration of our model
+## NiteDR
+
+### Illustration of our model
 
 **1. Overall Framework**
 
@@ -92,7 +95,7 @@ CUDA_VISIBLE_DEVICES=0, python CLFU_test.py --test_root_dir 'Path of the testing
 
 <img src="Figure/FusionNet.png" width="90%" align=center />
 
-#### Qualitative results
+### Qualitative results
 
 **1. Visual results of our method comparison with de-raining methods**
 
@@ -107,7 +110,7 @@ CUDA_VISIBLE_DEVICES=0, python CLFU_test.py --test_root_dir 'Path of the testing
 <img src="Figure/fusion2.png" width="70%" align=center />
 
 
-#### Quantitative results
+### Quantitative results
 <img src="Figure/Quantitative.jpg" width="90%" align=center />
 
 
