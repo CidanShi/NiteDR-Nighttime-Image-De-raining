@@ -18,11 +18,11 @@ In real-world environments, outdoor imaging systems are often affected by distur
 
 ## Installation
 ```
-- python == 3.8.12,    torch == 1.9.0+cu111,    torchaudio == 0.9.0,    torchvision == 0.10.0+cu111
+- python == 3.8.12    torch == 1.9.0+cu111   torchaudio == 0.9.0   torchvision == 0.10.0+cu111
 - opencv-python == 4.8.1.78
 - scikit-image == 0.21.0
 - scikit-learn == 1.3.1
-- numpy == 1.24.4,   Pillow == 9.5.0,  matplotlib == 3.7.3
+- numpy == 1.24.4   Pillow == 9.5.0   matplotlib == 3.7.3
 - scipy == 1.10.1
 - tensorboard == 1.13.0
 - tqdm == 4.66.1
