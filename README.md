@@ -7,13 +7,13 @@ Codes for ***NiteDR: Nighttime Image De-Raining with Cross-View Sensor Cooperati
 - [Installation](#Installation)
 - [Dataset](#Dataset)
 - [Usage](#Usage)
-  - [NetworkArchitecture](#NetworkArchitecture)
+  - [Network Architecture](#NetworkArchitecture)
   - [Training](#Training)
   - [Testing](#Testing)
 - [NiteDR](#NiteDR)
   - [Illustration of our model](#Illustrationofourmodel)
-  - [Qualitativeresults](#Qualitativeresults)
-  - [Quantitativeresults](#Quantitativeresults)
+  - [Qualitative results](#Qualitativeresults)
+  - [Quantitative results](#Quantitativeresults)
  
 ## Abstract
 In real-world environments, outdoor imaging systems are often affected by disturbances such as rain degradation. Especially, in nighttime driving scenes, insufficient and uneven lighting shrouds the scenes in darkness, resulting degradation of both the image quality and visibility. Particularly, in the field of autonomous driving, the visual perception ability of RGB sensors experiences a sharp decline in such harsh scenarios. Additionally, driving assistance systems suffer from reduced capabilities in capturing and discerning the surrounding environment, posing a threat to driving safety. Single-view information captured by single-modal sensors cannot comprehensively depict the entire scene. To address these challenges, we developed an image de-raining framework tailored for rainy nighttime driving scenes. It aims to remove rain artifacts, enrich scene representation, and restore useful information. Specifically, we introduce cooperative learning between visible and infrared images captured by different sensors. By cross-view fusion of these multi-source data, the scene within the images gains richer texture details and enhanced contrast. We constructed an information cleaning module called CleanNet as the first stage of our framework. Moreover, we designed an information fusion module called FusionNet as the second stage to fuse the clean visible images with infrared images. Using this stage-by-stage learning strategy, we obtain de-rained fusion images with higher quality and better visual perception. Extensive experiments demonstrate the effectiveness of our proposed Cross-View Cooperative Learning (CVCL) in adverse driving scenarios in low-light rainy environments. The proposed approach addresses the gap in the utilization of existing rain removal algorithms in specific low-light conditions.
@@ -37,7 +37,6 @@ Our RoadScene-rain dataset can be downloaded from [Google drive](https://drive.g
 
 
 ## Usage
-
 ### Network Architecture
 Our CleanNet is implemented in ``'./basicsr/models/archs/CLformer_arch.py'``. Our FusionNet is implemented in ``'Dense.py'`` and ``'refine.py'``.
 
@@ -78,8 +77,7 @@ CUDA_VISIBLE_DEVICES=0, python CLFU_test.py --test_root_dir 'Path of the testing
 
 
 ### NiteDR
-
-#### Illustration of our model.
+#### Illustration of our model
 
 **1. Overall Framework**
 
@@ -94,7 +92,7 @@ CUDA_VISIBLE_DEVICES=0, python CLFU_test.py --test_root_dir 'Path of the testing
 
 <img src="Figure/FusionNet.png" width="90%" align=center />
 
-#### Qualitative results.
+#### Qualitative results
 
 **1. Visual results of our method comparison with de-raining methods**
 
@@ -109,7 +107,7 @@ CUDA_VISIBLE_DEVICES=0, python CLFU_test.py --test_root_dir 'Path of the testing
 <img src="Figure/fusion2.png" width="70%" align=center />
 
 
-#### Quantitative results.
+#### Quantitative results
 <img src="Figure/Quantitative.jpg" width="90%" align=center />
 
 
