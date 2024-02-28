@@ -8,6 +8,7 @@ Codes for ***NiteDR: Nighttime Image De-Raining with Cross-View Sensor Cooperati
 - [Dataset](#Dataset)
 - [Usage](#Usage)
   - [Network Architecture](#NetworkArchitecture)
+  - [Network Architecture](#NetworkArchitecture)
   - [Training](#Training)
   - [Testing](#Testing)
 - [NiteDR](#NiteDR)
@@ -69,6 +70,7 @@ and the trained model is available in ``'./experiments/fusion/checkpoints/'``.
 Please download the pretrained models from [Google drive](https://drive.google.com/drive/folders/1O33zhb96jSx4_IUvNMwPWIS1Gt63CZP9?usp=drive_link) and place them in the folder ``'./checkpoints/'``. Do not forget to modify the model path in the ``CLFU_test.py``.
 
 **2. Testing**
+
 Run
 ```
 CUDA_VISIBLE_DEVICES=0, python CLFU_test.py --test_root_dir 'Path of the testing images' --derained_checkpoint_dir 'Path of the de-raining model' --save_path 'Path to save testing results'
