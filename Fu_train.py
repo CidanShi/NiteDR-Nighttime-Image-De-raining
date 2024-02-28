@@ -277,8 +277,6 @@ def cascaded_train(args):
         plt.plot(plot_loss_list_2)
         plt.savefig(os.path.join(args.plt_logs_dir, 'refinement_loss_curve.png'))
 
-        # writer.add_image('fusion_img', rgb_img, global_step=epoch, dataformats='NCHW')
-
     writer.close()
 
 
@@ -297,23 +295,23 @@ def option():
                         help='fusion learning rate')
     parser.add_argument('--refine_lr', type=float, default=0.0003,
                         help='refine learning rate')
-    parser.add_argument('--log_dir', type=str, default='./experiments/fusion/logs_fusion_measurement/',
+    parser.add_argument('--log_dir', type=str, default='./experiments/fusion/logs_fusion/',
                         help='log file path')
-    parser.add_argument('--plt_logs_dir', type=str, default='./experiments/fusion/plt_logs_fusion_measurement/',
+    parser.add_argument('--plt_logs_dir', type=str, default='./experiments/fusion/plt_logs_fusion/',
                         help='plt_logs file path')
     parser.add_argument('--train_root_dir', type=str, default='./dataset/RoadScene-rain/train/',
                         help='Path to the training data')
-    parser.add_argument('--test_root_dir', type=str, default='./test_images/LLVIP_1024/',
+    parser.add_argument('--test_root_dir', type=str, default='./dataset/RoadScene-rain/test/',
                         help='Path to the test data')
     parser.add_argument('--derained_checkpoint_dir', type=str, default='./experiments/de-raining/checkpoints/',
                         help='best training model of the first stage')
-    parser.add_argument('--save_path', type=str, default='./testing/test_results_LLVIP_1024/',
+    parser.add_argument('--save_path', type=str, default='./testing/test_results/',
                         help='testing results  dataset directory')
-    parser.add_argument('--val_path', type=str, default='./experiments/fusion/validation_measurement/',
+    parser.add_argument('--val_path', type=str, default='./experiments/fusion/validation/',
                         help='validation results  dataset directory')
     parser.add_argument('--model_path', type=str, default='./experiments/fusion/checkpoints/',
                         help='trained model directory')
-    parser.add_argument('--fusion_refine_model', type=str, default='fusion_measurement.pth',
+    parser.add_argument('--fusion_refine_model', type=str, default='fusion.pth',
                         help='fusion model name')
     parser.add_argument('--stage', type=int, default=3, help='adjust steps')
     parser.add_argument('--scale', type=int, default=1, help='Scale factor')
