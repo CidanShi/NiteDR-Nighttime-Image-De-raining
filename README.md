@@ -38,10 +38,6 @@ Our RoadScene-rain dataset can be downloaded from [Google drive](https://drive.g
 
 ## Usage
 
-### Network Architecture
-
-Our CleanNet is implemented in ``'./basicsr/models/archs/CLformer_arch.py'``. Our FusionNet is implemented in ``'Dense.py'`` and ``'refine.py'``.
-
 ### Training
 
 **1. Preparation**
