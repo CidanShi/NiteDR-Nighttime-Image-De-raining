@@ -96,13 +96,13 @@ CUDA_VISIBLE_DEVICES=0, python CLFU_test.py --test_root_dir 'Path of the testing
 
 ### Qualitative results
 
-**1. Visual results of our method comparison with de-raining methods**
+**1. Visual results of our method compared with de-raining methods**
 
 <img src="Figure/de-raining1.png" width="90%" align=center />
 
 <img src="Figure/de-raining2.png" width="70%" align=center />
 
-**2. Visual results of our method comparison with fusion methods**
+**2. Visual results of our method compared with fusion methods**
 
 <img src="Figure/fusion1.png" width="90%" align=center />
 
