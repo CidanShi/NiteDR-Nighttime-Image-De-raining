@@ -1,1 +1,1 @@
-
+If you want to test with our pretrained model, download the pretrained checkpoints from [Google drive](https://drive.google.com/drive/folders/1O33zhb96jSx4_IUvNMwPWIS1Gt63CZP9?usp=drive_link) and place them in this folder . Do not forget to modify the model path in the ``CLFU_test.py``.
