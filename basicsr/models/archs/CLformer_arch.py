@@ -98,23 +98,6 @@ class FeedForward(nn.Module):
 
         return x
 
-# Conventional Feed-foreard Network(FFN)
-# class FeedForward(nn.Module):
-#     def __init__(self, dim, ffn_expansion_factor, bias):
-#         super(FeedForward, self).__init__()
-#
-#         hidden_dim = int(dim * ffn_expansion_factor)
-#
-#         self.project_in = nn.Conv2d(dim, hidden_dim * 2, kernel_size=1, bias=bias)
-#         self.relu = nn.ReLU()
-#         self.project_out = nn.Conv2d(hidden_dim * 2, dim, kernel_size=1, bias=bias)
-#
-#     def forward(self, x):
-#         x = self.project_in(x)
-#         x = self.relu(x)
-#         x = self.project_out(x)
-#         return x
-
 
 ##  Top-selection Self-Attention (TSSA)
 class Attention(nn.Module):
@@ -133,7 +116,6 @@ class Attention(nn.Module):
         self.attn2 = torch.nn.Parameter(torch.tensor([0.2]), requires_grad=True)
         self.attn3 = torch.nn.Parameter(torch.tensor([0.2]), requires_grad=True)
         self.attn4 = torch.nn.Parameter(torch.tensor([0.2]), requires_grad=True)
-        # self.attn = torch.nn.Parameter(torch.tensor([0.2]), requires_grad=True) # add to evaluate TSSA
 
     def forward(self, x):
         b, c, h, w = x.shape
@@ -185,11 +167,6 @@ class Attention(nn.Module):
 
         out = out1 * self.attn1 + out2 * self.attn2 + out3 * self.attn3 + out4 * self.attn4
 
-        # #add to evaluate TSSA
-        # attn = attn.softmax(dim=-1)
-        # out = (attn @ v)
-        # out = out * self.attn
-
         out = rearrange(out, 'b head c (h w) -> b (head c) h w', head=self.num_heads, h=h, w=w)
 
         out = self.project_out(out)
@@ -204,7 +181,6 @@ class TransformerBlock(nn.Module):
         self.attn = Attention(dim, num_heads, bias)
         self.norm2 = LayerNorm(dim, LayerNorm_type)
         self.ffn = FeedForward(dim, ffn_expansion_factor, bias)
-        # self.ffn = FeedForward(dim, ffn_expansion_factor)
 
     def forward(self, x):
         x = x + self.attn(self.norm1(x))
@@ -428,7 +404,7 @@ class CLformer(nn.Module):
 
         self.patch_embed = OverlapPatchEmbed(inp_channels, dim)
         
-        self.encoder_level0 = subnet(dim)  ## We do not use MEFC for training Rain200L and SPA-Data
+        self.encoder_level0 = subnet(dim)
 
         self.encoder_level1 = nn.Sequential(*[
             TransformerBlock(dim=dim, num_heads=heads[0], ffn_expansion_factor=ffn_expansion_factor, bias=bias,
@@ -467,16 +443,15 @@ class CLformer(nn.Module):
             TransformerBlock(dim=int(dim * 2 ** 1), num_heads=heads[0], ffn_expansion_factor=ffn_expansion_factor,
                              bias=bias, LayerNorm_type=LayerNorm_type) for i in range(num_blocks[0])])
 
-        self.refinement = subnet(dim=int(dim*2**1)) ## We do not use MEFC for training Rain200L and SPA-Data
+        self.refinement = subnet(dim=int(dim*2**1))
 
         self.output = nn.Conv2d(int(dim * 2 ** 1), out_channels, kernel_size=3, stride=1, padding=1, bias=bias)
 
     def forward(self, inp_img):
 
         inp_enc_level1 = self.patch_embed(inp_img)
-        inp_enc_level0 = self.encoder_level0(inp_enc_level1) ## We do not use MEFC for training Rain200L and SPA-Data
+        inp_enc_level0 = self.encoder_level0(inp_enc_level1)
         out_enc_level1 = self.encoder_level1(inp_enc_level0)
-        # out_enc_level1 = self.encoder_level1(inp_enc_level1)  # modify for Rain200L/SPA-Data
 
         inp_enc_level2 = self.down1_2(out_enc_level1)
         out_enc_level2 = self.encoder_level2(inp_enc_level2)
@@ -501,7 +476,7 @@ class CLformer(nn.Module):
         inp_dec_level1 = torch.cat([inp_dec_level1, out_enc_level1], 1)
         out_dec_level1 = self.decoder_level1(inp_dec_level1)
 
-        out_dec_level1 = self.refinement(out_dec_level1) ## We do not use MEFC for training Rain200L and SPA-Data
+        out_dec_level1 = self.refinement(out_dec_level1)
 
         out_dec_level1 = self.output(out_dec_level1) + inp_img
 
