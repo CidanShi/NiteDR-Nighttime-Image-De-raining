@@ -105,18 +105,6 @@ class TrainDataset(data.Dataset):
                 'vis_input_1': vis_input_1}
 
 
-    # def get_patch(self, target_img, input_img):
-    #     h, w = target_img.shape[:2]
-    #     stride = self.patch_size
-    #
-    #     x = random.randint(0, w - stride)
-    #     y = random.randint(0, h - stride)
-    #
-    #     target_img = target_img[y:y + stride, x:x + stride, :]
-    #     input_img = input_img[y:y + stride, x:x + stride, :]
-    #
-    #     return target_img, input_img
-
     def get_patch(self, input_img):
         h, w = input_img.shape[:2]
         stride = self.patch_size
