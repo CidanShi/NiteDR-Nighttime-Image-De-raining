@@ -89,14 +89,10 @@ CUDA_VISIBLE_DEVICES=0, python CLFU_test.py --test_root_dir 'Path of the testing
 
 <img src="Figure/Overall Framework.png" width="90%" align=center />
 
-**2. CleanNet**
+**2. NiteDR**
 
-<img src="Figure/CleanNet.png" width="90%" align=center />
+<img src="Figure/NiteDR.png" width="90%" align=center />
 
-
-**3. FusionNet**
-
-<img src="Figure/FusionNet.png" width="90%" align=center />
 
 ### Qualitative results
 
