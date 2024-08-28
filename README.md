@@ -3,7 +3,7 @@
 ## About
 Codes for ***NiteDR: Nighttime Image De-Raining with Cross-View Sensor Cooperative Learning for Dynamic Driving Scenes***, **IEEE Transactions on Multimedia (TMM), 2024.**
 
-*-[[Paper]](10.1109/TMM.2024.3387746)*
+*-[[Paper]](https://ieeexplore.ieee.org/document/10499836)*
 
 *-[[ArXiv]](https://arxiv.org/abs/2402.18172)*
 
